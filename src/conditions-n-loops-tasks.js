@@ -160,8 +160,39 @@ function convertToRomanNumerals(num) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
+function convertNumberToString(numberStr) {
+  const digitToWord = {
+    "0": "zero",
+    "1": "one",
+    "2": "two",
+    "3": "three",
+    "4": "four",
+    "5": "five",
+    "6": "six",
+    "7": "seven",
+    "8": "eight",
+    "9": "nine",
+    "-": "minus",
+    ".": "point",
+    ",": "point"
+  };
+
+  // Результирующая строка
+  let result = "";
+
+  // Преобразуем входное значение в строку и обходим посимвольно
+  for (let i = 0; i < numberStr.length; i++) {
+    const char = numberStr[i]; // Текущий символ
+    if (digitToWord[char] !== undefined) {
+      // Если символ есть в словаре, добавляем соответствующее слово
+      if (result !== "") {
+        result += " "; // Добавляем пробел перед следующим словом
+      }
+      result += digitToWord[char];
+    }
+  }
+
+  return result;
 }
 
 /**
