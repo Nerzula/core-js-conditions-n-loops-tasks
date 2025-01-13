@@ -177,16 +177,13 @@ function convertNumberToString(numberStr) {
     ",": "point"
   };
 
-  // Результирующая строка
   let result = "";
 
-  // Преобразуем входное значение в строку и обходим посимвольно
   for (let i = 0; i < numberStr.length; i++) {
-    const char = numberStr[i]; // Текущий символ
+    const char = numberStr[i];
     if (digitToWord[char] !== undefined) {
-      // Если символ есть в словаре, добавляем соответствующее слово
       if (result !== "") {
-        result += " "; // Добавляем пробел перед следующим словом
+        result += " ";
       }
       result += digitToWord[char];
     }
@@ -194,7 +191,6 @@ function convertNumberToString(numberStr) {
 
   return result;
 }
-
 /**
  * Determines whether a string is a palindrome.
  * In this task, the use of methods of the String and Array classes is not allowed.
