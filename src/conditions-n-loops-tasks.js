@@ -123,10 +123,28 @@ function isIsoscelesTriangle(a, b, c) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
-}
+function convertToRomanNumerals(num) {
+  const romanSymbols = [
+    { value: 10, symbol: "X" },
+    { value: 9, symbol: "IX" },
+    { value: 5, symbol: "V" },
+    { value: 4, symbol: "IV" },
+    { value: 1, symbol: "I" },
+  ];
 
+  // Переменная для результата
+  let result = "";
+
+  // Пока число больше нуля, преобразуем его в римскую нотацию
+  for (let i = 0; i < romanSymbols.length; i++) {
+    while (num >= romanSymbols[i].value) {
+      result += romanSymbols[i].symbol; // Добавляем соответствующий символ
+      num -= romanSymbols[i].value;    // Уменьшаем число на значение символа
+    }
+  }
+
+  return result;
+}
 /**
  * Converts a number to a string, replacing digits with words.
  * In this task, the use of methods of the String and Array classes is not allowed.
