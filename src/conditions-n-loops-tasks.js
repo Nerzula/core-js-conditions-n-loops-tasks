@@ -235,16 +235,13 @@ function isPalindrome(str) {
 function getIndexOf(str, letter) {
   let index = 0;
 
-  // Проходим по строке символ за символом
   while (str[index] !== undefined) {
-    // Если текущий символ совпадает с искомым, возвращаем индекс
     if (str[index] === letter) {
       return index;
     }
-    index++; // Переходим к следующему символу
+    index++;
   }
 
-  // Если символ не найден, возвращаем -1
   return -1;
 }
 
@@ -263,8 +260,21 @@ function getIndexOf(str, letter) {
  *  12345, 0    => false
  *  12345, 6    => false
  */
-function isContainNumber(/* num, digit */) {
-  throw new Error('Not implemented');
+function isContainNumber(num, digit) {
+  if (num < 0) {
+    num = -num;
+  }
+
+  digit = +digit;
+
+  while (num > 0) {
+    if (num % 10 === digit) {
+      return true;
+    }
+    num = Math.floor(num / 10);
+  }
+
+  return false;
 }
 
 /**
